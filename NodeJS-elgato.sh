@@ -2,12 +2,12 @@
 
 #----------------------------------------------------------------------------------------
 # NodeJS-elgato
-# Version: 0.8
+# Version: 0.9
 # 
 # WebSite:
-# https://github.com/pablomenino/nodejs-elgato/
+# https://www.mfwlab.com/
 # 
-# Copyright © 2020 - Pablo Meniño <pablo.menino@gmail.com>
+# Copyright © 2020 - Pablo Meniño <pablo.menino@mfwlab.com>
 #----------------------------------------------------------------------------------------
 
 SCRIPT=`realpath $0`

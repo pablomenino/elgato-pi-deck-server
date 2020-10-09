@@ -7,53 +7,57 @@
     * @author     Pablo Meniño
     * @copyright  Pablo Meniño (pablo.menino@mfwlab.com)
     * @license    http://www.gnu.org/licenses/gpl-3.0.html
-    * @version    0.8
+    * @version    0.9
     *
     * @email      pablo.menino@mfwlab.com
     * @website    https://www.mfwlab.com
     *
 */
 
+// Libs
 var http = require("http");
 var sys = require('util');
 var exec = require('child_process').exec;
 var url = require("url");
+const fs = require('fs');
+
+// Read conig file
+var jsonConfig = fs.readFileSync('./config.json');
+// Parse json
+var jsonConfig = JSON.parse(jsonConfig);
 
 function onRequest(request, response)
 {
     var params = url.parse(request.url,true).query;
     function puts(error, stdout, stderr) {sys.puts(stdout)}
 
-    console.log("NodeJS-elgato - Version 0.8 - Start");
+    console.log("NodeJS-elgato - Version 0.9 - Start");
 
     // Only for debug
     // console.log(params);
     // console.log(request.connection.remoteAddress);
 
-    // Accept gets only from Raspberry Pi Node
-    if (request.connection.remoteAddress.includes('192.168.0.10'))
+    // Accept gets only from remoteAddress in config file
+    if (request.connection.remoteAddress.includes(jsonConfig.remoteAddress))
     {
-
         if (params.launch == "elgato-pi-deck")
         {
-            if (params.conn == "firefox")
-            {
-                console.log("Execute Firefox Action");
-                // Return OK to client
-                response.writeHead(200, {'Content-Type': 'text/html'});
-                response.end('Request OK');
-                // open a new tab in Firefox with google.com
-                exec("firefox -new-tab \"https://www.google.com/\"");
-            }
 
-            if (params.conn == "clementine")
+            // Read actions from config file
+            for(let valueActions of jsonConfig.actions)
             {
-                console.log("Execute Clementine Action");
-                // Return OK to client
-                response.writeHead(200, {'Content-Type': 'text/html'});
-                response.end('Request OK');
-                // open Clementine
-                exec("clementine %U");
+
+                if (params.conn == valueActions.conn)
+                {
+                    console.log(valueActions.log);
+                    // Return OK to client
+                    response.writeHead(200, {'Content-Type': 'text/html'});
+                    response.end('Request OK');
+                    // Execute action
+                    exec(valueActions.command);
+                    exec("notify-send 'NodeJS-elgato' '" + valueActions.notify + "' --icon=dialog-information ");
+                }
+    
             }
 
         }
@@ -63,4 +67,4 @@ function onRequest(request, response)
     console.log("NodeJS-elgato - End");
 }
 
-http.createServer(onRequest).listen(8889);
+http.createServer(onRequest).listen(jsonConfig.listenPort);

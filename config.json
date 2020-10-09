@@ -1,0 +1,19 @@
+{
+    "remoteAddress": "192.168.0.10",
+    "listenPort": "8889",
+    "actions":
+    [
+        {
+            "conn": "firefox",
+            "log": "Execute Firefox",
+            "notify": "Execute Firefox",
+            "command": "firefox -new-tab \"https://www.google.com/\""
+        },
+        {
+            "conn": "bitwarden",
+            "log": "Executed Bitwarden",
+            "notify": "Executed Bitwarden",
+            "command": "bitwarden"
+        }
+    ]
+}
