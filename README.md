@@ -31,12 +31,6 @@ Starting from Fedora 24, npm is a part of Node.js package and does not need to b
 sudo dnf install nodejs
 ```
 
-Installing NodeJS packages:
-
-```
-npm install js-yaml
-```
-
 #### Usage
 
 <a href="https://raw.githubusercontent.com/pablomenino/elgato-pi-deck-server/master/Assets/diagam.png"><img src="https://raw.githubusercontent.com/pablomenino/elgato-pi-deck-server/master/Assets/diagam.png" width="380"></a>
