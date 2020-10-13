@@ -1,6 +1,6 @@
 <h3 align="center">elgato-pi-deck-server</h3>
-<h3 align="center">Version: 0.9</h3>
-<p align="center">elgato-pi-deck-server - Is a local NodeJS Server Script to execute commands controlled by Elgato Stream Deck (connected to a Raspberry Pi). You can have one or several's NodeJS Server's.</p>
+<h3 align="center">Version: 0.9.1</h3>
+<p align="center">elgato-pi-deck-server - Is a local NodeJS Server Script to execute commands controlled by Elgato Stream Deck (Client software where Steram Deck is connected). You can have one or several's NodeJS Server's.</p>
 
 <p align="center">
 <a href="https://github.com/pablomenino/elgato-pi-deck-server/releases"><img src="https://img.shields.io/github/release/pablomenino/elgato-pi-deck-server.svg"></a>
@@ -59,12 +59,12 @@ vi config.json
 "listenPort": "25864",
 ```
 
-Configure IP address of your Raspberry PI (Accept only request from that IP)
+Configure IP address of your Client Node (Accept only request from that IP)
 
-In config.json file, change IP Address for your local Raspberry PI:
+In config.json file, change IP Address for your local Computer (Client):
 
 ```
-# By example if you Raspberry Pi have the IP Address 10.2.20.40
+# By example if you Raspberry Pi (This is only an example, can be other computer/OS) have the IP Address 10.2.20.40
 
 # Edit file
 vi config.json
@@ -97,4 +97,28 @@ Execute script to bring the server up.
 
 ```
 ./NodeJS-elgato.sh
+```
+
+Full config example:
+
+```
+{
+    "remoteAddress": "192.168.0.10",
+    "listenPort": "8889",
+    "actions":
+    [
+        {
+            "conn": "firefox",
+            "log": "Execute Firefox",
+            "notify": "Execute Firefox",
+            "command": "firefox -new-tab \"https://www.google.com/\""
+        },
+        {
+            "conn": "bitwarden",
+            "log": "Executed Bitwarden",
+            "notify": "Executed Bitwarden",
+            "command": "bitwarden"
+        }
+    ]
+}
 ```
