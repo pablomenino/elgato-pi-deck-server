@@ -7,7 +7,7 @@
     * @author     Pablo Meniño
     * @copyright  Pablo Meniño (pablo.menino@mfwlab.com)
     * @license    http://www.gnu.org/licenses/gpl-3.0.html
-    * @version    0.9.1
+    * @version    0.9.2
     *
     * @email      pablo.menino@mfwlab.com
     * @website    https://www.mfwlab.com
@@ -31,7 +31,7 @@ function onRequest(request, response)
     var params = url.parse(request.url,true).query;
     function puts(error, stdout, stderr) {sys.puts(stdout)}
 
-    console.log("NodeJS-elgato - Version 0.9 - Start");
+    console.log("NodeJS-elgato - Version 0.9.2 - Start");
 
     // Only for debug
     // console.log(params);
@@ -64,7 +64,7 @@ function onRequest(request, response)
 
     }
 
-    console.log("NodeJS-elgato - End");
+    console.log("NodeJS-elgato - Version 0.9.2 - End");
 }
 
 http.createServer(onRequest).listen(jsonConfig.listenPort);

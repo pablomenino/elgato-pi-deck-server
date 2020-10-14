@@ -1,5 +1,5 @@
 <h3 align="center">elgato-pi-deck-server</h3>
-<h3 align="center">Version: 0.9.1</h3>
+<h3 align="center">Version: 0.9.2</h3>
 <p align="center">elgato-pi-deck-server - Is a local NodeJS Server Script to execute commands controlled by Elgato Stream Deck (Client software where Steram Deck is connected). You can have one or several's NodeJS Server's.</p>
 
 <p align="center">
@@ -8,8 +8,6 @@
 </p>
 
 **This is the server part of [elgato-pi-deck](https://github.com/pablomenino/elgato-pi-deck/)**
-
-**This is a basic script to be used like a template or idea of something more complex that you need**
 
 ## Table of contents
 
@@ -21,9 +19,9 @@
 
 * NodeJS
 * NPM
-* There must be a user session established to perform script actions.
+* libnotify
 
-Installing NodeJS in Fedora:
+**Installing NodeJS in Fedora:**
 
 Starting from Fedora 24, npm is a part of Node.js package and does not need to be installed separately. Therefore, to install both npm and Node.js, you need to run:
 
@@ -31,20 +29,29 @@ Starting from Fedora 24, npm is a part of Node.js package and does not need to b
 sudo dnf install nodejs
 ```
 
+**Installing libnotify in Fedora:**
+
+```
+sudo dnf install libnotify
+```
+
 #### Usage
 
 <a href="https://raw.githubusercontent.com/pablomenino/elgato-pi-deck-server/master/Assets/diagam.png"><img src="https://raw.githubusercontent.com/pablomenino/elgato-pi-deck-server/master/Assets/diagam.png" width="380"></a>
 
-In this case you are on Cumputer 1 or 2:
+This guide is intended to help you to configure the script parameters (config.json) and software.
 
-Clone this repo
+For this example elgato-pi-deck-server are be installed on Computer 1 or Computer 2:
+
+**Clone this repo:**
 
 ```
 git clone https://github.com/pablomenino/elgato-pi-deck-server/
 cd elgato-pi-deck-server/
 ```
 
-By default this script use TCP port 8889, you can change it editing the config file config.json:
+By default this script uses TCP port 8889 for the server, you can change it editing the config file config.json:
+
 
 ```
 # By example if you want to use port TCP 25864
@@ -59,12 +66,25 @@ vi config.json
 "listenPort": "25864",
 ```
 
-Configure IP address of your Client Node (Accept only request from that IP)
-
-In config.json file, change IP Address for your local Computer (Client):
+NOTE: You need to open the port in firewall (In this example firewalld).
 
 ```
-# By example if you Raspberry Pi (This is only an example, can be other computer/OS) have the IP Address 10.2.20.40
+sudo firewall-cmd --permanent --add-port=8889/tcp
+
+# Or TCP 25864 Port
+
+sudo firewall-cmd --permanent --add-port=25864/tcp
+
+# Reload firewals policy
+sudo firewall-cmd --reload
+```
+
+Configure IP address of elgato-pi-deck (Client) (Accept only request from that IP)
+
+In config.json file, change IP Address for your local elgato-pi-deck node (Client):
+
+```
+# By example if you run elgato-pi-deck over a Raspberry Pi (This is only an example, can be other computer/OS) and you have the IP Address 10.2.20.40
 
 # Edit file
 vi config.json
@@ -122,3 +142,13 @@ Full config example:
     ]
 }
 ```
+
+Configuration parameters:
+
+**conn:** Action name.
+
+**log:** Text to display on console (Debug propose).
+
+**notify:** Notify text to be displayed.
+
+**command:** Command to be execute on local computer.
