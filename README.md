@@ -1,17 +1,36 @@
-<h3 align="center">elgato-pi-deck-server</h3>
-<h3 align="center">Version: 0.9.2</h3>
-<p align="center">elgato-pi-deck-server - Is a local NodeJS Server Script to execute commands controlled by Elgato Stream Deck (Client software where Steram Deck is connected). You can have one or several's NodeJS Server's.</p>
+<!-- start badges -->
+![GitHub release](https://img.shields.io/github/release/pablomenino/elgato-pi-deck-server)
+![GitHub license](https://img.shields.io/github/license/pablomenino/elgato-pi-deck-server)
+![GitHub last commit](https://img.shields.io/github/last-commit/pablomenino/elgato-pi-deck-server)
+![GitHub repo size](https://img.shields.io/github/repo-size/pablomenino/elgato-pi-deck-server)
+![Contributors](https://img.shields.io/github/contributors-anon/pablomenino/elgato-pi-deck-server)
+![GitHub followers](https://img.shields.io/github/followers/pablomenino?label=Follow)
+![Twitter Follow](https://img.shields.io/twitter/follow/pmenino)
+<!-- end badges -->
 
-<p align="center">
-<a href="https://github.com/pablomenino/elgato-pi-deck-server/releases"><img src="https://img.shields.io/github/release/pablomenino/elgato-pi-deck-server.svg"></a>
-<a href="./LICENSE"><img src="https://img.shields.io/github/license/pablomenino/elgato-pi-deck-server.svg"></a>
+<!-- start description -->
+<h1>Welcome to elgato-pi-deck-server 👋</h1>
+<p>
+    <a href="https://lab.mfwlab.com/lab/elgato-pi-deck-server/" id="homepage" rel="nofollow">
+        <img align="right" height="128" id="icon" src="logo.svg" width="128"/>
+    </a>
 </p>
-
-**This is the server part of [elgato-pi-deck](https://github.com/pablomenino/elgato-pi-deck/)**
+<h2>🏠 <a href="https://lab.mfwlab.com/lab/elgato-pi-deck-server/" id="homepage">Homepage</a></h2>
+<p>
+    elgato-pi-deck-server - Is a local NodeJS Server Script to execute commands controlled by Elgato Stream Deck (Client software where Steram Deck is connected). You can have one or several's NodeJS Server's.
+</p>
+<!-- end description -->
 
 ## Table of contents
 
+* [How it works](#how-it-works)
 * [How to Use](#how-to-use)
+* [Support me](#support-me)
+* [Third party](#third-party)
+
+## <a name="how-it-works"> How it works
+
+elgato-pi-deck-server - Is a local NodeJS Server Script to execute commands controlled by Elgato Stream Deck (Client software where Steram Deck is connected). You can have one or several's NodeJS Server's.
 
 ## <a name="how-to-use">How to Use
 
@@ -152,3 +171,17 @@ Configuration parameters:
 **notify:** Notify text to be displayed.
 
 **command:** Command to be execute on local computer.
+
+## <a name="support-me">Support me:
+
+### Librepay
+
+<a href="https://liberapay.com/pablomenino/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a>
+
+### Paypal
+
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4HPTG85J8NQVG)
+
+## <a name="third-party">Third party:
+
+* **Icons:** The icon images are from [Tela Icon Theme](https://github.com/vinceliuice/Tela-icon-theme)

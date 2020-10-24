@@ -7,7 +7,7 @@
     * @author     Pablo Meniño
     * @copyright  Pablo Meniño (pablo.menino@mfwlab.com)
     * @license    http://www.gnu.org/licenses/gpl-3.0.html
-    * @version    0.9.2
+    * @version    0.9.3
     *
     * @email      pablo.menino@mfwlab.com
     * @website    https://www.mfwlab.com
